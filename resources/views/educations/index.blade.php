@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('title')
-    Home Page
+    Education Page
 @endsection
 
 @section('content')
-    <h2 class="content-title">Home</h2>
+    <h2 class="content-title">Education</h2>
 @endsection

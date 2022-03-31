@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('title')
-    Home Page
+    Experience Page
 @endsection
 
 @section('content')
-    <h2 class="content-title">Home</h2>
+    <h2 class="content-title">Experience</h2>
 @endsection
