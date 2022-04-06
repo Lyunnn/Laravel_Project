@@ -14,11 +14,10 @@ class EducationController extends Controller
      */
     public function index()
     {
-        echo('ddddd');
-        
-        $educations = Education::all();
-        // dd($educations);
+        // $educations = Education::all();
         // return view('educations.index')->with('educations', $educations);
+        // dd($educations);
+        return view('educations.index');
     }
 
     /**

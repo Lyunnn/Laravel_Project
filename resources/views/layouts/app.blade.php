@@ -20,10 +20,10 @@
 
     </head>
     <body>
-        <div class="bg-primarycolor">
-            <h2 class="text-4xl items-center text-center text-white font-bold font-display">Lin Yun Kee - Portfolio</h2>
-            <nav class="bg-navcolor w-80 flex flex-wrap justify-center items-center text-center mx-auto hover:text-gray-700 focus:text-gray-700 shadow-lg py-1 navbar">
-                <ul class="navbar-nav flex flex-col inline-flex pl-0 list-style-none">
+        <div class="bg-primarycolor p-2">
+            <h2 class="text-4xl items-center text-center text-white font-bold font-display p-2">Lin Yun Kee - Portfolio</h2>
+            <nav class="bg-navcolor mx-20 rounded-lg flex flex-wrap justify-center items-center text-center hover:text-gray-700 focus:text-gray-700 shadow-lg py-1 navbar">
+                <ul class="navbar-nav flex flex-row pl-0 list-style-none">
                 <li class="nav-item px-4">
                     <a class="nav-link active" aria-current="page" href="{{url("/")}}">Home</a>
                 </li>
