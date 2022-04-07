@@ -3,29 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
 
 class ImageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -34,51 +16,26 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'image' => 'required'
+        ]);
+
+        //get the image file from request and store it in public/experiences_images
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $destinationPath = public_path().'/experiences_images';
+        $file->move($destinationPath,$fileName);
+
+        //the food image will be stored in this format '/experiences_images/img.jpg'
+        $image_store = 'experiences_images/'.$fileName;
+
+        $Image = new Image();
+        $Image->exp_proj_id = $request->exp_proj_id;
+        $Image->image = $image_store;
+        $Image->save();
+
+        // return redirect()->action([ExperienceController::class, 'show'], ['exp_proj_id' => $request->exp_proj_id]);
+        return redirect()->action([ExperienceController::class, 'index']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

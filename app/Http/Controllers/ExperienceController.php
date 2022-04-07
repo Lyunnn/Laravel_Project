@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Experience;
+use App\Models\Image;
+use App\Models\Skill;
 
 class ExperienceController extends Controller
 {
@@ -15,7 +17,8 @@ class ExperienceController extends Controller
     public function index()
     {
         $experiences = Experience::all();
-        return view('experiences.index')->with('experiences', $experiences);
+        $skills = Skill::all();
+        return view('experiences.index')->with('experiences', $experiences)->with('skills', $skills);
     }
 
     /**
@@ -25,7 +28,7 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        return view('experiences.index');
+        return view('experiences.create_experience');
     }
 
     /**
@@ -36,7 +39,21 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'proj_name' => 'required|max:50|unique:experiences,proj_name,',
+            'proj_year' => 'required|numeric|min:2017',
+            'proj_description' => 'nullable|max:500',
+            'URL' => 'nullable|url'
+        ]);
+
+        $experience = new Experience();
+        $experience->proj_name = $request->proj_name;
+        $experience->proj_year = $request->proj_year;
+        $experience->proj_description = $request->proj_description;
+        $experience->URL = $request->URL;
+        $experience->save();
+
+        return redirect()->action([ExperienceController::class, 'index']);
     }
 
     /**
@@ -47,7 +64,8 @@ class ExperienceController extends Controller
      */
     public function show($id)
     {
-        //
+        // $experience = Experience::find($id);
+        // return view('experiences.index')->with('experience', $experience);
     }
 
     /**
@@ -81,6 +99,9 @@ class ExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $experience = Experience::find($id);
+        $experience->delete();
+
+        return redirect()->action([ExperienceController::class, 'index']);
     }
 }

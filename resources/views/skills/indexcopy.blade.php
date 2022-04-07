@@ -5,38 +5,6 @@
 @endsection
 
 @section('content')
-    <div class="grid grid-cols-2 grid-rows-2">
-        <div class="flex bg-titlecolor shadow mt-8 ml-32">
-            <h2 class="m-auto justify-center items-center font-display font-semibold text-3xl">Technical Skills</h2>
-        </div>
-    
-        <div class="bg-white shadow mt-8 mr-32 pb-8">
-            <!-- <div class="mx-20 sm:px-5"> -->
-                @foreach ($skills as $skill)
-                    @if ($skill->skill_category == 'technical')
-                        <p class="mx-20 sm:mx-10 pt-10 font-display font-semibold text-xl">{{$skill->skill_name}}</p>
-                        <p class="mx-20 sm:mx-10 pt-4">{{$skill->skill_desc}}</p>
-                        <p class="mx-20 sm:mx-10">{{$skill->course_studied}}</p>
-                    @endif   
-                @endforeach
-            <!-- </div> -->
-        </div>
-        <div class="bg-white shadow ml-32 sm:w-fit">
-            <div class="grid grid-flow-row auto-rows-max sm:grid-cols-2 lg:grid-cols-4 w-full mx-4">
-                @foreach ($skills as $skill)
-                    @if ($skill->skill_category == 'programming')
-                        <button class="transition ease-in-out delay-50 bg-rose-100 hover:-translate-y-1 hover:scale-110 hover:bg-rose-300 duration-300 p-5 m-4 sm:w-fit">{{$skill->skill_name}}</button>
-                    @endif   
-                @endforeach
-                <button class="transition ease-in-out delay-50 bg-rose-100 hover:-translate-y-1 hover:scale-110 hover:bg-rose-300 duration-300 p-5 m-4 sm:w-fit">PHP</button>
-            </div>
-        </div>
-        <div class="flex bg-titlecolor mr-32">
-            <h2 class="m-auto justify-center items-center font-display font-semibold text-3xl">Programming Skills</h2>
-        </div>
-    </div>
-
-
     
     <div class="flex md:flex-row sm:flex-col">
         <div class="flex flex-col w-1/2">
@@ -64,8 +32,8 @@
                 @endif   
             @endforeach
             <button class="transition ease-in-out delay-50 bg-rose-100 hover:-translate-y-1 hover:scale-110 hover:bg-rose-300 duration-300 p-5 m-4 sm:w-fit">PHP</button>
+            </div>
         </div>
-    </div>
     </div>
     </div>
     </div><br><br><br>

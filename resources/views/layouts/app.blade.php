@@ -22,13 +22,10 @@
     <body>
         <div class="bg-primarycolor p-2">
             <h2 class="text-4xl items-center text-center text-white font-bold font-display p-2">Lin Yun Kee - Portfolio</h2>
-            <nav class="bg-navcolor mx-20 rounded-lg flex flex-wrap justify-center items-center text-center hover:text-gray-700 focus:text-gray-700 shadow-lg py-1 navbar">
-                <ul class="navbar-nav flex flex-row pl-0 list-style-none">
+            <nav class="bg-navcolor mx-20 rounded-lg flex flex-wrap justify-center items-center hover:text-gray-700 focus:text-gray-700 shadow-lg py-1 navbar">
+                <ul class="navbar-nav flex flex-row pl-0 list-style-none text-center">
                 <li class="nav-item px-4">
                     <a class="nav-link active" aria-current="page" href="{{url("/")}}">Home</a>
-                </li>
-                <li class="nav-item pr-4">
-                    <a class="nav-link active hover:text-gray-700 focus:text-gray-700 p-2" href="{{url("education")}}">My Education</a>
                 </li>
                 <li class="nav-item pr-4">
                     <a class="nav-link active hover:text-gray-700 focus:text-gray-700 p-2" href="{{url("skill")}}">My Skills</a>

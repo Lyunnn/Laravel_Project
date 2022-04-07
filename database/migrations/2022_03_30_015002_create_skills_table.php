@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('proj_id');
+            $table->string('skill_name');
             $table->timestamps();
+            // $table->foreign('proj_id')->references('id')->on('experiences');
         });
     }
 

@@ -42,7 +42,10 @@
                             <input class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" type="text" name="contact_message" value="{{ old('contact_message') }}">
                         </div><br>
                         <hr><br>
-                        <input class="py-2 px-16 bg-primarycolor rounded-full font-display font-bold float-right" type="submit" value="Submit"><br><br>
+
+                        <button class="py-3 px-12 bg-buttoncolor hover:bg-buttonhover rounded-full font-display font-bold float-right" type="submit" value="Submit">Submit</button>
+
+                        <br><br>
                     </div>
                     <!-- <div class="mt-0">
                         <label class="block pb-2">Enter Your Name *</label>

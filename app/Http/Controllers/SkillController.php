@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Skill;
+use App\Models\Experience;
 
 class SkillController extends Controller
 {
@@ -15,7 +16,9 @@ class SkillController extends Controller
     public function index()
     {
         $skills = Skill::all();
-        return view('skills.index')->with('skills', $skills);
+        $experiences = Experience::all();
+        // dd($skills);
+        return view('experiences.index')->with('skills', $skills)->with('experiences', $experiences);
     }
 
     /**
@@ -25,7 +28,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        return view('skills.index');
+        return view('skills.create_skill');
     }
 
     /**
@@ -36,7 +39,16 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'skill_name' => 'required|string|max:255|unique:skills, skill_name,'
+        ]);
+
+        $skill = new Skill();
+        $skill->proj_id = $request->proj_id;
+        $skill->skill_name = $request->skill_name;
+        $skill->save();
+
+        return redirect()->action([ExperienceController::class, 'index']); // , ['proj_id' => $request->proj_id]
     }
 
     /**
@@ -81,6 +93,9 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $skill = Skill::find($id);
+        $skill->delete();
+
+        return redirect()->action([ExperienceController::class, 'index']);
     }
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+    protected $fillable = ['skill_name'];
+    // function experience() {
+    //     return $this->belongsTo('App\Models\Experience');
+    // }
 }

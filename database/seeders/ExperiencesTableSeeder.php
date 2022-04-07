@@ -15,6 +15,15 @@ class ExperiencesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('experiences')->insert([ 
+            'proj_name' => 'Design Documentation',
+            'proj_year' => 2019,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
+        DB::table('experiences')->insert([ 
+            'proj_name' => 'Website Creation',
+            'proj_year' => 2020,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP'),
+        ]);
     }
 }

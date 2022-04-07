@@ -15,6 +15,13 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('images')->insert([
+            'exp_proj_id' => 1,
+            'image' => '/experiences_images/design-doc.jpg'
+        ]);
+        DB::table('images')->insert([
+            'exp_proj_id' => 1,
+            'image' => '/experiences_images/wireframe.jpg'
+        ]);
     }
 }
