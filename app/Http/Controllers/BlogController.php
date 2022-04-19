@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\User;
 use App\Http\Controllers\BlogController;
 use Auth;
 
@@ -17,7 +18,7 @@ class BlogController extends Controller
     public function index()
     {
         $posts = Blog::all();
-        return view('blogs.index')->with('posts', $posts);
+        return view('blogs.index')->with('posts', $posts)->with('users', User::all());;
     }
 
     /**
@@ -27,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blogs.create_blog')->with('posts', Blog::all())->with('users', User::all());
+        //
     }
 
     /**
@@ -40,7 +41,7 @@ class BlogController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required|exists:users,id',
-            'blog_message' => 'required|text|max:255',
+            'blog_message' => 'required|string|max:500',
         ]);        
         $findPost = Blog::where(['user_id' => $request->user_id])->exists();
         if (!$findPost) {
@@ -50,8 +51,8 @@ class BlogController extends Controller
             $post->save();
             return redirect()->action([BlogController::class, 'index']);
         } else {
-            $error = "Error: You have reviewed for this product before";
-            return redirect("blog/create")->with('error', $error);
+            $error = "Error: You have posted before";
+            return redirect("/blog")->with('error', $error);
         }
     }
 
@@ -85,7 +86,7 @@ class BlogController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required|exists:users,id',
-            'blog_message' => 'required|text|max:255',  
+            'blog_message' => 'required|string|max:500',  
         ]);
         
         $post = Blog::find($id);

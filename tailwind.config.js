@@ -2,11 +2,10 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/views/layouts/*.blade.php',
-    ],
+        "./resources/**/*.blade.php",
+        "./resources/**/*.js",
+        "./resources/**/*.vue",
+      ],
 
     theme: {
         extend: {
@@ -16,6 +15,8 @@ module.exports = {
                 titlecolor: '#E8E6E6',
                 buttoncolor: '#E0CCD2',
                 buttonhover: '#F7E9EA',
+                titletogradient: '#8b5cf6',
+                titlefromgradient: '#ddd6fe',
             },
             fontFamily: {
                 display: ["Nunito", "sans-serif"],

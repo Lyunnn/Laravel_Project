@@ -5,89 +5,96 @@
 @endsection
 
 @section('content')
-    <div class="grid grid-cols-2 md:grid-cols-1">
-        <div>
+    <div class="my-8 text-3xl font-bold text-center font-display">
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-buttonhover to-primarycolor">
+        Blog
+    </span>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-1 mx-20">
+        <div class="">
+            @if (count($errors) > 0)
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-semibold font-display">Errors!</strong>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br>
+            @endif
+            @if(session()->has('error'))
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                {{session()->get('error')}}
+                </div><br>
+            @endif
             <div class="bg-white py-10 px-20 shadow rounded-lg sm:px-10">
                 <form class="justify-center items-center my-auto" method="POST" action='{{url("blog")}}' enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <div class="">
+                    <div class="font-display font-semibold">
                         <div class="mt-0">
-                            <label class="block pb-2">Enter Your Name *</label>
-                            <input class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" type="text" name="user_id" value="{{Auth::user()->id}}">
+                            <label class="block pb-2 font-display font-semibold">Your User Id</label>
+                            <div class="flex justify-center">
+                                <div class="mb-3 w-full">
+                                    <select class="form-select appearance-none block
+                                    w-full px-3 py-2 text-base font-normal text-gray-700
+                                    bg-titlecolor bg-clip-padding bg-no-repeat
+                                    border border-solid border-gray-300 rounded
+                                    transition ease-in-out m-0
+                                    focus:text-gray-700 focus:bg-white focus:outline-primarycolor" aria-label="Default select example"
+                                    name="user_id">
+                                        @foreach ($users as $user)
+                                            @if(Auth::user()->id == $user->id)
+                                                <option value="{{$user->id}}" selected="selected">{{$user->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div><br>
                         <hr>
                         <div class="mt-4">
-                            <label class="block pb-2">Enter Your Email *</label>
-                            <input class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" type="text" name="contact_email" value="{{ old('contact_email') }}">
-                        </div><br>
-                        <hr>
-                        <div class="mt-4">
-                            <label class="block pb-2">Enter Your Subject *</label>
-                            <input class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" type="text" name="contact_subject" value="{{ old('contact_subject') }}">
-                        </div><br>
-                        <hr>
-                        <div class="mt-4">
-                            <label class="block pb-2">Enter Your Message *</label>
-                            <input class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" type="text" name="contact_message" value="{{ old('contact_message') }}">
+                            <label class="block pb-2 font-display font-semibold">Enter Your Comment *</label>
+                            <textarea class="rounded-xl bg-titlecolor w-full py-2 font-display focus:outline-primarycolor" rows="3" name="blog_message" value="{{ old('blog_message') }}"></textarea>
                         </div><br>
                         <hr><br>
 
-                        <button class="py-3 px-12 bg-buttoncolor hover:bg-buttonhover rounded-full font-display font-bold float-right" type="submit" value="Submit">Submit</button>
-
+                        <button class="py-3 px-6 bg-buttoncolor hover:bg-buttonhover rounded-lg font-display font-bold float-right" type="submit" value="Submit">Create</button>
                         <br><br>
                     </div>
                 </form>
             </div>
         </div>
-        <div>
-            a
-        </div>
-    </div>
-    @forelse($reviews_pag as $post)
-        <div class="p-3 mb-4 bg-light rounded-3">
-            <div class="container-fluid">
-                <p>
-                    @foreach($users as $user)
-                        @if($review->user_id == $user->id)
-                            <strong>User Name: </strong>{{$user->name}}<br>
-                        @endif
-                    @endforeach
-                    <strong>Created at: </strong>{{$post->created_at}}<br>
-                    <strong>Post Message:<br></strong>{{$post->review_content}}<br>
-                </p>
-                                @if(Auth::user()->id == $review->user_id || Auth::user()->user_type == 'Moderator')
-                                    <div class="d-flex">
-                                        <button class="btn btn-primary btn-md me-2" type="submit"><a href="{{url("review/$review->id/edit")}}" style="color: white">Update</a></button>
-                                        <form method="POST" action= '{{url("review/$review->id")}}'>
-                                            {{csrf_field()}}
-                                            {{ method_field('DELETE') }} {{-- HTML does not support delete method so generate a hidden field to do the delete action --}}
-                                            <input class="form-control" type="submit" value="Delete">               
-                                        </form>
-                                    </div>
-                                @endif
-                            </div>
+
+        <div class="ml-10">
+            @forelse($posts as $post)
+            <div class="flex flex-col">
+                <div class="bg-white py-10 px-10 shadow rounded-lg w-full">
+                    <p>
+                        @foreach($users as $user)
+                            @if($post->user_id == $user->id)
+                                <strong>User Name: </strong>{{$user->name}}<br>
+                            @endif
+                        @endforeach
+                        <strong>Created at: </strong>{{$post->created_at}}<br>
+                        <strong>Post Message:<br></strong>{{$post->blog_message}}<br>
+                    </p>
+                    @if(Auth::user()->id == $post->user_id)
+                        <br>
+                        <div class="flex flex-row">
+                            <button class="mr-2 py-1 px-4 bg-buttoncolor hover:bg-buttonhover rounded-lg font-display font-semibold" type="submit"><a href="{{url("blog/$post->id/edit")}}">Update</a></button>
+                            <form method="POST" action= '{{url("blog/$post->id")}}'>
+                                {{csrf_field()}}
+                                {{ method_field('DELETE') }}
+                                <button class="py-1 px-4 bg-buttoncolor hover:bg-buttonhover rounded-lg font-display font-semibold" type="submit">Delete</button>             
+                            </form>
                         </div>
                     @endif
-                @empty
-                    No reviews found.
-                @endforelse
-                <br>
-                {{ $reviews_pag->links() }}
-            </div>
-    <div class="bg-white shadow ml-32 my-8 sm:w-fit">
-        <div class="grid grid-flow-row auto-rows-max sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 p-10">
-            @foreach ($skills as $skill)
-                <div class="flex transition ease-in-out delay-50 bg-rose-100 hover:-translate-y-1 hover:scale-110 hover:bg-rose-300 duration-300 ">
-                    <p class="p-5 m-auto">{{$skill->skill_name}}</p>   
                 </div>
-            @endforeach
-        </div>
-        <div class="flex pb-4">
-            <button class="m-auto"><a href="{{url("skill/create")}}">
-                <svg xmlns="http://www.w3.org/2000/svg" class="animate-bounce h-8 w-8 fill-rose-100 stroke-rose-500 stroke-2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg></a>
-            </button>
+            </div><br>
+            @empty
+                No posts found.
+            @endforelse
         </div>
     </div>
+    <br>
 @endsection

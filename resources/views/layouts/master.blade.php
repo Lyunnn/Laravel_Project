@@ -15,7 +15,8 @@
         </style>
 
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+        <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"> -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}" defer></script>
 
     </head>
@@ -36,7 +37,7 @@
                 </ul>
                 <ul class="navbar-nav flex flex-row-reverse justify-end items-end pl-0 list-style-none text-right">
                     @auth
-                        <li class="nav-item text-white me-5">{{Auth::user()->name}}</li>
+                        <li class="nav-item text-center items-center me-5 py-1 px-4 bg-gray-100 rounded-lg font-display font-semibold">Username: {{Auth::user()->name}}</li>
                         <form class="d-flex" method="POST" action= "{{url('/logout')}}">
                             {{csrf_field()}}
                             <button class="ml-2 py-1 px-4 bg-gray-100 hover:bg-gray-200 rounded-lg font-display font-semibold" type="submit">Logout</button>
