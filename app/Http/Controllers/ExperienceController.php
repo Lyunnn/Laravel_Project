@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Experience;
 use App\Models\Image;
 use App\Models\Skill;
+use App\Http\Controllers\ExperienceController;
+use Auth;
 
 class ExperienceController extends Controller
 {
@@ -18,7 +20,8 @@ class ExperienceController extends Controller
     {
         $experiences = Experience::all();
         $skills = Skill::all();
-        return view('experiences.index')->with('experiences', $experiences)->with('skills', $skills);
+        $images = Image::all();
+        return view('experiences.index')->with('experiences', $experiences)->with('skills', $skills)->with('images', $images);
     }
 
     /**
@@ -64,8 +67,10 @@ class ExperienceController extends Controller
      */
     public function show($id)
     {
-        // $experience = Experience::find($id);
-        // return view('experiences.index')->with('experience', $experience);
+        $experience = Experience::find($id);
+        $ImagesPerPage = 3;
+        $Images = Image::where('exp_proj_id', $id)->paginate($ImagesPerPage);
+        return view('experiences.index')->with('experience', $experience)->with('Images', $Images);
     }
 
     /**

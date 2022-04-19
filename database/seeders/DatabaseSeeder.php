@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(HomesTableSeeder::class);
         $this->call(ContactsTableSeeder::class);
-        $this->call(EducationsTableSeeder::class);
         $this->call(SkillsTableSeeder::class);
         $this->call(ExperiencesTableSeeder::class);
         $this->call(ImagesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(BlogsTableSeeder::class);
     }
 }

@@ -14,10 +14,16 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function index() {
+        $images = Image::all();
+        return redirect()->action([ExperienceController::class, 'index']); //, compact('image_data')
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
-            'image' => 'required'
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3048'
         ]);
 
         //get the image file from request and store it in public/experiences_images
@@ -25,6 +31,7 @@ class ImageController extends Controller
         $fileName = $file->getClientOriginalName();
         $destinationPath = public_path().'/experiences_images';
         $file->move($destinationPath,$fileName);
+        // $image_data[] = $file;
 
         //the food image will be stored in this format '/experiences_images/img.jpg'
         $image_store = 'experiences_images/'.$fileName;

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Skill;
 use App\Models\Experience;
+use App\Http\Controllers\ExperienceController;
+use Auth;
 
 class SkillController extends Controller
 {

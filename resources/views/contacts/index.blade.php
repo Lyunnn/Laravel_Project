@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title')
     Contact Page
@@ -47,27 +47,6 @@
 
                         <br><br>
                     </div>
-                    <!-- <div class="mt-0">
-                        <label class="block pb-2">Enter Your Name *</label>
-                        <input class="rounded-xl bg-titlecolor w-80 py-2 font-display focus:outline-primarycolor" type="text" name="contact_name" value="{{ old('contact_name') }}">
-                    </div><br>
-                    <hr>
-                    <div class="mt-4">
-                        <label class="block pb-2">Enter Your Email *</label>
-                        <input class="rounded-xl bg-titlecolor w-80 py-2 font-display focus:outline-primarycolor" type="text" name="contact_email" value="{{ old('contact_email') }}">
-                    </div><br>
-                    <hr>
-                    <div class="mt-4">
-                        <label class="block pb-2">Enter Your Subject *</label>
-                        <input class="rounded-xl bg-titlecolor w-80 py-2 font-display focus:outline-primarycolor" type="text" name="contact_subject" value="{{ old('contact_subject') }}">
-                    </div><br>
-                    <hr>
-                    <div class="mt-4">
-                        <label class="block pb-2">Enter Your Message *</label>
-                        <input class="rounded-xl bg-titlecolor w-80 py-2 font-display focus:outline-primarycolor" type="text" name="contact_message" value="{{ old('contact_message') }}">
-                    </div><br>
-                    <hr><br>
-                    <input class="py-2 px-16 bg-primarycolor rounded-full font-display font-bold float-right" type="submit" value="Submit"><br><br> -->
                 </form>
             </div>
         </div>

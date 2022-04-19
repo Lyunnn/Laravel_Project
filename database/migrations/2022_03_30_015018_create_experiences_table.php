@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('proj_name')->nullable();
             $table->integer('proj_year')->nullable();
-            $table->string('proj_description')->nullable();
+            $table->text('proj_description')->nullable();
             $table->string('URL')->nullable();
             $table->timestamps();
         });

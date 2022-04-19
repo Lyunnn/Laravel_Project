@@ -40,8 +40,8 @@ class ContactController extends Controller
             // key     rules
             'contact_name' => 'required|string|max:255', // required means cannot be empty
             'contact_email' => 'required|email|string|max:255',
-            'contact_subject' => 'required|string|max:255',
-            'contact_message' =>'required|string|max:255'
+            'contact_subject' => 'required|text|max:255',
+            'contact_message' =>'required|text|max:255'
         ]);
         $contact = new Contact();
         $contact->contact_name = $request->contact_name;

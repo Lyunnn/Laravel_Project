@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('contact_name');
             $table->string('contact_email');
-            $table->string('contact_subject');
-            $table->string('contact_message');
+            $table->text('contact_subject');
+            $table->text('contact_message');
             $table->timestamps();
         });
     }
