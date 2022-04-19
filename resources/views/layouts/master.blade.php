@@ -55,7 +55,7 @@
         </main>
         <div class="pt-20">
             <footer class="bg-primarycolor py-4 text-sm">
-                <p class="flex flex-col justify-center items-center text-white mx-auto font-display">&copy; 2022 by Lin Yun Kee</p>
+                <p class="flex flex-row justify-center items-center text-white mx-auto font-display">&copy; 2022 by Lin Yun Kee</p>
                 <!-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
                     <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
                     <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>

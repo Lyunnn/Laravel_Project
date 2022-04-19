@@ -5,10 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="my-8 text-3xl font-bold text-center font-display">
-    <span class="bg-clip-text text-transparent bg-gradient-to-r from-buttonhover to-primarycolor">
+    <div class="my-8">
+    <p class="text-3xl font-extrabold text-center font-display bg-clip-text text-transparent bg-gradient-to-r from-buttonhover to-primarycolor">
         Blog
-    </span>
+    </p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-1 mx-20">
         <div class="">

@@ -8,12 +8,14 @@
     <img class="h-96 w-screen mt-4 sm:w-screen" src="{{url("homes_images/home-bg.jpg")}}" alt="background image">
     <h3 class="text-center my-8 font-display font-semibold text-2xl">About Me</h3>
     <div class="bg-gray-100 mx-32 sm:max-w-fit">
-        <p class="mx-20 pt-10 pb-10">Nunc eu magna ac massa finibus blandit. Nulla laoreet fermentum lorem, ut sagittis ante.
-            Vestibulum molestie ipsum ac ligula tempor faucibus. Fusce id nulla rhoncus, malesuada erat ac, ornare dolor.
-            Ut fringilla nibh vitae mauris ultricies convallis. Fusce in orci finibus, sodales enim eu, tristique sem.
-            Suspendisse vulputate nibh erat, et rutrum turpis ullamcorper vel. Sed arcu ipsum, finibus in consectetur et, venenatis eu leo. Curabitur in venenatis dolor, vitae lobortis leo.
-            In in diam metus. Nunc volutpat nisl nulla, id tempor urna convallis ac. Etiam at lacus malesuada, cursus nunc quis, mollis sapien.
-            Nam id turpis id velit sollicitudin dictum.</p>
+        <p class="mx-20 pt-10 pb-10">In fact, I discovered that I was interested in the IT field after graduating from
+            high school. After consideration, I decided to study in a major that I am unfamiliar with. In the
+            beginning, I encountered difficulties and felt stressed. However, the assistance from friends and tutors,
+            as well as the passion for IT always motivates me. In addition, there is a sense of accomplishment that
+            makes me feel delighted every time I complete a project.<br><br>The most important thing for me now
+            is to keep learning to improve my self-worth, and successfully graduate from university. In the
+            future, I plan to seek a job and become an IT pro after years of passing.
+        </p>
     </div>
 
 
