@@ -5,9 +5,11 @@
 @endsection
 
 @section('content')
-    <img class="h-96 w-screen mt-4 sm:w-screen" src="{{url("homes_images/home-bg.jpg")}}" alt="background image">
+    <!-- <div class="h-96 w-full mt-4">
+        <img class="" src="{{url("homes_images/home-bg.jpg")}}" alt="background image">
+    </div> -->
     <h3 class="text-center my-8 font-display font-semibold text-2xl">About Me</h3>
-    <div class="bg-gray-100 mx-32 sm:max-w-fit">
+    <div class="bg-gray-100 mx-32">
         <p class="mx-20 pt-10 pb-10">In fact, I discovered that I was interested in the IT field after graduating from
             high school. After consideration, I decided to study in a major that I am unfamiliar with. In the
             beginning, I encountered difficulties and felt stressed. However, the assistance from friends and tutors,

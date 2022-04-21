@@ -42,15 +42,14 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'skill_name' => 'required|string|max:255|unique:skills, skill_name,'
+            'skill_name' => 'required|string|max:255|unique:skills,skill_name,'
         ]);
 
         $skill = new Skill();
-        $skill->proj_id = $request->proj_id;
         $skill->skill_name = $request->skill_name;
         $skill->save();
 
-        return redirect()->action([ExperienceController::class, 'index']); // , ['proj_id' => $request->proj_id]
+        return redirect()->action([ExperienceController::class, 'index']);
     }
 
     /**

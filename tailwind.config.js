@@ -20,6 +20,7 @@ module.exports = {
             },
             fontFamily: {
                 display: ["Nunito", "sans-serif"],
+                pacifico: ["Pacifico", "cursive"],
             },
         },
     },
