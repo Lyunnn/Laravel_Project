@@ -17,6 +17,8 @@ module.exports = {
                 buttonhover: '#F7E9EA',
                 titletogradient: '#8b5cf6',
                 titlefromgradient: '#ddd6fe',
+                darkpurple: "#8E8CB8",
+                lightpuple: "#B5AFD0",
             },
             fontFamily: {
                 display: ["Nunito", "sans-serif"],

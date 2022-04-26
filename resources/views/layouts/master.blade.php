@@ -37,28 +37,28 @@
                                 <span class="font-semibold text-xl lg:text-4xl tracking-tight font-pacifico">LinYun's Portfolio</span>
                                 <svg class="fill-current w-8 h-8 lg:w-10 lg:h-10" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
                             </div>
-                            <div class="w-full block flex-grow md:flex md:w-auto font-display md:my-auto">
-                            <div class="text-sm lg:text-lg lg:flex-grow md:my-auto font-semibold md:mr-20 lg:text-center">
-                                <a href="{{url("/")}}" class="block mt-4 md:inline-block lg:mt-0 hover:text-gray-600 focus:text-rose-400 mr-4">
+                            <div class="w-full block lg:text-center flex-grow md:flex md:w-auto font-display md:my-auto">
+                            <div class="text-sm lg:text-lg lg:flex-grow md:my-auto font-semibold md:mr-10 lg:text-center">
+                                <a href="{{url("/")}}" class="block mt-4 md:inline-block lg:mt-0 hover:text-gray-600 focus:text-rose-400 mr-8">
                                 Home
                                 </a>
-                                <a href="{{url("experience")}}" class="block mt-4 md:inline-block lg:mt-0 hover:text-gray-600 focus:text-rose-400 mr-4">
+                                <a href="{{url("experience")}}" class="block mt-4 md:inline-block lg:mt-0 hover:text-gray-600 focus:text-rose-400 mr-8">
                                 Work
                                 </a>
                                 <a href="{{url("blog")}}" class="block mt-4 md:inline-block lg:mt-0 hover:text-gray-600 focus:text-rose-400">
                                 Blog
                                 </a>
                             </div>
-                            <div class="text-sm lg:flex-grow w-fit md:flex md:flex-row-reverse md:items-end md:justify-end md:my-auto">
+                            <div class="text-sm lg:flex-grow w-fit md:flex lg:items-end lg:justify-end md:my-auto">
                                 @auth
+                                    <span class="block mt-4 lg:inline-block lg:mt-0 px-4 py-2 leading-none border rounded bg-white text-purple-900 mr-4 text-semibold">Username: {{Auth::user()->name}}</span>
                                     <form class="d-flex" method="POST" action= "{{url('/logout')}}">
                                         {{csrf_field()}}
                                         <button class="block mt-4 md:inline-block lg:mt-0 px-4 py-2 leading-none rounded hover:border hover:border-rose-300 hover:bg-white hover:text-gray-500 bg-rose-400 text-white" type="submit">Logout</button>
                                     </form>
-                                    <span class="block mt-4 lg:inline-block lg:mt-0 px-4 py-2 leading-none border rounded bg-white text-purple-900 mr-4 text-semibold">Username: {{Auth::user()->name}}</span>
                                 @else
-                                    <a href="{{route('register')}}" class="block mt-4 md:inline-block lg:mt-0 px-4 py-2 leading-none rounded hover:border hover:border-rose-300 hover:bg-white hover:text-gray-500 bg-rose-400 text-white">Register</a>
                                     <a href="{{route('login')}}" class="block mt-4 md:inline-block lg:mt-0 px-4 py-2 leading-none border rounded bg-white hover:bg-rose-500 hover:text-white hover:border-transparent mr-4">Login</a>
+                                    <a href="{{route('register')}}" class="block mt-4 md:inline-block lg:mt-0 px-4 py-2 leading-none rounded hover:border hover:border-rose-300 hover:bg-white hover:text-gray-500 bg-rose-400 text-white">Register</a>
                                 @endauth
                             </div>
                         </nav>
@@ -66,7 +66,7 @@
                 </div>
             </header>
 
-            <main class="container mx-auto font-display mb-20">
+            <main class="container mx-auto font-display mt-16 mb-24">
                 @yield('content')
             </main>
 
